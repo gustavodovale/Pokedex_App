@@ -45,9 +45,14 @@ A aplicação consome dados da [PokéAPI](https://pokeapi.co/api/v2/pokemon/) e 
 O usuário digita o nome de um Pokémon (ex: `pikachu`) e o app retorna:
 
 Nome: Pikachu
+
 Altura: 4
+
 Peso: 60
+
 Habilidades: static, lightning-rod
+
+Ataques: mega-punch, pay-day, thunder-punch, slam, double-kick
 
 *(Esses dados são obtidos em tempo real da API.)*
 
