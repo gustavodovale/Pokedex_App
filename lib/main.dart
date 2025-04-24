@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:google_fonts/google_fonts.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Pokedex',
       theme: ThemeData(
+        textTheme: GoogleFonts.pressStart2pTextTheme(),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 212, 5, 5)),
       ),
       home: MyHomePage(title: 'Pokedex'),
@@ -48,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
 
-    String url = 'https://pokeapi.co/api/v2/pokemon/${widget.controller.text.toLowerCase()}';
+    String url ='https://pokeapi.co/api/v2/pokemon/${widget.controller.text.toLowerCase()}';
 
     try {
       final response = await http.get(Uri.parse(url));
@@ -89,12 +93,17 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(widget.title), 
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Image(
+              image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png'),
+              width: 200,
+              height: 300,
+            ),
             Text(
               'Pokedex',
               style: Theme.of(context).textTheme.headlineMedium,
@@ -116,12 +125,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: const TextStyle(color: Color.fromARGB(255, 231, 23, 8)),
               ),
             if (nome.isNotEmpty) ...[
-              Text('Nome: $nome'),
-              Text('Tipos: $tipos'),
-              Text('Altura: $altura'),
-              Text('Peso: $peso'),
-              Text('Habilidades: $habilidades'),
-              Text('Ataques: $ataques'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Nome: $nome', style: const TextStyle(fontSize: 20)),
+                  Text('Tipos: $tipos', style: const TextStyle(fontSize: 20)),
+                  Text('Altura: $altura', style: const TextStyle(fontSize: 20)),
+                  Text('Peso: $peso', style: const TextStyle(fontSize: 20)),
+                  Text('Habilidades: $habilidades', style: const TextStyle(fontSize: 20)),
+                  Text('Ataques: $ataques', style: const TextStyle(fontSize: 20)),
+                ],
+              ),
             ],
           ],
         ),
