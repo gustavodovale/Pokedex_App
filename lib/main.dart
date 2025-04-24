@@ -3,8 +3,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 void main() {
   runApp(const MyApp());
 }
@@ -16,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pokedex',
-      theme: ThemeData(
-        textTheme: GoogleFonts.pressStart2pTextTheme(),
-      ),
+      theme: ThemeData(textTheme: GoogleFonts.pressStart2pTextTheme()),
       home: MyHomePage(title: 'Pokedex'),
     );
   }
@@ -42,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String habilidades = '';
   String ataques = '';
   String mensagemErro = '';
+  String imagem = '';
 
   void _procurar() async {
     if (widget.controller.text.isEmpty) {
@@ -51,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
       return;
     }
 
-    String url ='https://pokeapi.co/api/v2/pokemon/${widget.controller.text.toLowerCase()}';
+    String url =
+        'https://pokeapi.co/api/v2/pokemon/${widget.controller.text.toLowerCase()}';
 
     try {
       final response = await http.get(Uri.parse(url));
@@ -70,10 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
               .take(5)
               .map((ataque) => ataque['move']['name'])
               .join(', ');
-          tipos = dados['types']
-              .map((tipo) => tipo['type']['name'])
-              .join(', ');
-          mensagemErro = ''; // Limpa a mensagem de erro
+          tipos = dados['types'].map((tipo) => tipo['type']['name']).join(', ');
+          imagem = dados['sprites']['front_default'] ?? '';
+          mensagemErro = '';
         });
       } else {
         setState(() {
@@ -90,9 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 22, 22, 1),
-      ),
+      appBar: AppBar(backgroundColor: Color.fromRGBO(255, 22, 22, 1)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -100,7 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Image(
-                image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png'),
+                image: NetworkImage(
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png',
+                ),
                 width: 200,
                 height: 200,
               ),
@@ -127,19 +124,64 @@ class _MyHomePageState extends State<MyHomePage> {
               if (mensagemErro.isNotEmpty)
                 Text(
                   mensagemErro,
-                  style: const TextStyle(color: Color.fromARGB(255, 231, 23, 8)),
+                  style: const TextStyle(
+                    color: Color.fromARGB(255, 231, 23, 8),
+                  ),
                 ),
               if (nome.isNotEmpty) ...[
                 const SizedBox(height: 16),
-                Column(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Nome: $nome', style: const TextStyle(fontSize: 20)),
-                    Text('Tipos: $tipos', style: const TextStyle(fontSize: 20)),
-                    Text('Altura: $altura', style: const TextStyle(fontSize: 20)),
-                    Text('Peso: $peso', style: const TextStyle(fontSize: 20)),
-                    Text('Habilidades: $habilidades', style: const TextStyle(fontSize: 20)),
-                    Text('Ataques: $ataques', style: const TextStyle(fontSize: 20)),
+                    Expanded(
+                      flex: 2, // Define a proporção de espaço para o texto
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Nome: $nome',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            'Tipos: $tipos',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            'Altura: $altura',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            'Peso: $peso',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            'Habilidades: $habilidades',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                          Text(
+                            'Ataques: $ataques',
+                            style: const TextStyle(fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ), // Espaçamento entre o texto e a imagem
+                    Expanded(
+                      flex: 1, // Define a proporção de espaço para a imagem
+                      child: Image.network(
+                        imagem,
+                        width: 150, // Ajuste o tamanho da imagem
+                        height: 150,
+                        fit:
+                            BoxFit
+                                .contain, // Garante que a imagem se ajuste ao espaço disponível
+                        errorBuilder: (context, error, stackTrace) {
+                          return const Text('Erro ao carregar a imagem');
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ],
