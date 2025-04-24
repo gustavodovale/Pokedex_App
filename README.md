@@ -5,8 +5,7 @@ Este aplicativo foi desenvolvido em **Flutter** com o objetivo de praticar e apr
 A aplicação consome dados da [PokéAPI](https://pokeapi.co/api/v2/pokemon/) e permite que o usuário pesquise um Pokémon pelo nome, exibindo informações como:
 
 - Nome
-- Altura
-- Peso
+- Tipos
 - Habilidades
 - Outros atributos relevantes
 
@@ -18,11 +17,11 @@ A aplicação consome dados da [PokéAPI](https://pokeapi.co/api/v2/pokemon/) e 
 
 📋 **Exibição de informações detalhadas:**
 - Nome
+- Tipos
 - Altura
 - Peso
 - Habilidades
-- Experiência base
-- Tipo(s)
+- Ataques
 
 ---
 
@@ -45,6 +44,8 @@ A aplicação consome dados da [PokéAPI](https://pokeapi.co/api/v2/pokemon/) e 
 O usuário digita o nome de um Pokémon (ex: `pikachu`) e o app retorna:
 
 Nome: Pikachu
+
+Tipos: Eletric
 
 Altura: 4
 
