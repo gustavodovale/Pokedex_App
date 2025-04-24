@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       title: 'Pokedex',
       theme: ThemeData(
         textTheme: GoogleFonts.pressStart2pTextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 212, 5, 5)),
       ),
       home: MyHomePage(title: 'Pokedex'),
     );
@@ -92,53 +91,60 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title), 
+        backgroundColor: Color.fromRGBO(255, 22, 22, 1),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Image(
-              image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png'),
-              width: 200,
-              height: 300,
-            ),
-            Text(
-              'Pokedex',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            TextField(
-              controller: widget.controller,
-              decoration: InputDecoration(
-                labelText: 'Digite o nome do Pokémon',
-                border: OutlineInputBorder(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Image(
+                image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/770px-Pok%C3%A9_Ball_icon.svg.png'),
+                width: 200,
+                height: 200,
               ),
-            ),
-            ElevatedButton(
-              onPressed: _procurar,
-              child: const Text('Procurar'),
-            ),
-            if (mensagemErro.isNotEmpty)
               Text(
-                mensagemErro,
-                style: const TextStyle(color: Color.fromARGB(255, 231, 23, 8)),
+                'Pokedex',
+                style: Theme.of(context).textTheme.headlineMedium,
+                textAlign: TextAlign.center,
               ),
-            if (nome.isNotEmpty) ...[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Nome: $nome', style: const TextStyle(fontSize: 20)),
-                  Text('Tipos: $tipos', style: const TextStyle(fontSize: 20)),
-                  Text('Altura: $altura', style: const TextStyle(fontSize: 20)),
-                  Text('Peso: $peso', style: const TextStyle(fontSize: 20)),
-                  Text('Habilidades: $habilidades', style: const TextStyle(fontSize: 20)),
-                  Text('Ataques: $ataques', style: const TextStyle(fontSize: 20)),
-                ],
+              const SizedBox(height: 16),
+              TextField(
+                controller: widget.controller,
+                decoration: InputDecoration(
+                  labelText: 'Digite o nome do Pokémon',
+                  border: OutlineInputBorder(),
+                  hintText: 'Ex: Pikachu',
+                ),
               ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: _procurar,
+                child: const Text('Procurar'),
+              ),
+              const SizedBox(height: 16),
+              if (mensagemErro.isNotEmpty)
+                Text(
+                  mensagemErro,
+                  style: const TextStyle(color: Color.fromARGB(255, 231, 23, 8)),
+                ),
+              if (nome.isNotEmpty) ...[
+                const SizedBox(height: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Nome: $nome', style: const TextStyle(fontSize: 20)),
+                    Text('Tipos: $tipos', style: const TextStyle(fontSize: 20)),
+                    Text('Altura: $altura', style: const TextStyle(fontSize: 20)),
+                    Text('Peso: $peso', style: const TextStyle(fontSize: 20)),
+                    Text('Habilidades: $habilidades', style: const TextStyle(fontSize: 20)),
+                    Text('Ataques: $ataques', style: const TextStyle(fontSize: 20)),
+                  ],
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
