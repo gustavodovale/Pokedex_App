@@ -57,11 +57,11 @@ Habilidades: static, lightning-rod
 
 ### 🔎 Tela de Pesquisa
 
-![Tela de busca](https://github.com/gustavodovale/Pokedex_App/assets/SEU-USUARIO/pesquisa.png)
+![Tela de Pesquisa](imgs/Captura%20de%20tela%20de%202025-04-24%2012-07-31.png)
 
 ### 📋 Resultado da Busca
 
-![Resultado do Pokémon](https://github.com/gustavodovale/Pokedex_App/assets/SEU-USUARIO/resultado.png)
+![Resultado do Pokémon](imgs/Captura%20de%20tela%20de%202025-04-24%2012-05-49.png)
 
 ---
 
