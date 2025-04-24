@@ -118,7 +118,24 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _procurar,
-                child: const Text('Procurar'),
+                child: Text(
+                  'Procurar',
+                  style: GoogleFonts.pressStart2p(
+                    fontSize: 14,
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromRGBO(255, 22, 22, 1),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 20,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                
               ),
               const SizedBox(height: 16),
               if (mensagemErro.isNotEmpty)
