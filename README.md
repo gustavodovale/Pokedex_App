@@ -1,63 +1,74 @@
-📱 Pokédex App
-Este aplicativo foi desenvolvido em Flutter com o objetivo de praticar e aprimorar minhas habilidades em Flutter e no consumo de APIs REST.​
+# 📱 Pokédex App
 
-O app permite que o usuário pesquise informações sobre Pokémon utilizando a PokéAPI, retornando dados como nome, altura, peso, habilidades e outros atributos relevantes.​
+Este aplicativo foi desenvolvido em **Flutter** com o objetivo de praticar e aprimorar minhas habilidades com **Flutter** e no consumo de **APIs REST**.
 
-🔍 Funcionalidades
-Busca de Pokémon por nome
+A aplicação consome dados da [PokéAPI](https://pokeapi.co/api/v2/pokemon/) e permite que o usuário pesquise um Pokémon pelo nome, exibindo informações como:
 
-Exibição de:
+- Nome
+- Altura
+- Peso
+- Habilidades
+- Outros atributos relevantes
 
-Nome
+---
 
-Altura
+## ✨ Funcionalidades
 
-Peso
+🔍 **Busca de Pokémon por nome**
 
-Habilidades
+📋 **Exibição de informações detalhadas:**
+- Nome
+- Altura
+- Peso
+- Habilidades
+- Experiência base
+- Tipo(s)
 
-Outros atributos relevantes​
+---
 
-🌐 API Utilizada
-PokéAPI - https://pokeapi.co/api/v2/pokemon/​
+## 🔗 API Utilizada
 
-🛠️ Tecnologias
-Flutter
+- [PokéAPI - https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/)
 
-Dart
+---
 
-HTTP (para requisições de API)​
+## 🛠️ Tecnologias
 
-🖼️ Exemplo de Uso
+- Flutter
+- Dart
+- Biblioteca `http` (requisições HTTP)
 
-O usuário digita o nome de um Pokémon (ex: pikachu) e o app retorna:​
+---
+
+## ▶️ Exemplo de Uso
+
+O usuário digita o nome de um Pokémon (ex: `pikachu`) e o app retorna:
 
 Nome: Pikachu
-
 Altura: 4
-
 Peso: 60
+Habilidades: static, lightning-rod
 
-Habilidades: static, lightning-rod​
+*(Esses dados são obtidos em tempo real da API.)*
 
-(Esses dados são retornados diretamente da API em tempo real.)
+---
 
+## 📸 Capturas de Tela
 
-📸 Capturas de Tela
+### 🔎 Tela de Pesquisa
 
-🔎 Tela de Pesquisa
+![Tela de busca](https://github.com/gustavodovale/Pokedex_App/assets/SEU-USUARIO/pesquisa.png)
 
-<img src="imgs/Captura de tela de 2025-04-24 12-07-31.png" alt="Tela de busca" width="300"/>
-📋 Resultado da Busca
+### 📋 Resultado da Busca
 
-<img src="imgs/Captura de tela de 2025-04-24 12-05-49.png" alt="Resultado do Pokémon" width="300"/>
+![Resultado do Pokémon](https://github.com/gustavodovale/Pokedex_App/assets/SEU-USUARIO/resultado.png)
 
-🚀 Como Rodar o Projeto
+---
 
-Clone este repositório:​ git clone https://github.com/gustavodovale/Pokedex_App.git
+## 🚀 Como Rodar o Projeto
 
-Acesse a pasta do projeto:​ cd Pokedex_App
-
-Instale as dependências:​ flutter pub get
-
-Execute o app:​ flutter run
+```bash
+git clone https://github.com/gustavodovale/Pokedex_App.git
+cd Pokedex_App
+flutter pub get
+flutter run
