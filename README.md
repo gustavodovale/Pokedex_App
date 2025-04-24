@@ -29,6 +29,7 @@ Dart
 HTTP (para requisições de API)​
 
 🖼️ Exemplo de Uso
+
 O usuário digita o nome de um Pokémon (ex: pikachu) e o app retorna:​
 
 Nome: Pikachu
@@ -43,15 +44,20 @@ Habilidades: static, lightning-rod​
 
 
 📸 Capturas de Tela
+
 🔎 Tela de Pesquisa
+
 <img src="imgs/Captura de tela de 2025-04-24 12-07-31.png" alt="Tela de busca" width="300"/>
 📋 Resultado da Busca
+
 <img src="imgs/Captura de tela de 2025-04-24 12-05-49.png" alt="Resultado do Pokémon" width="300"/>
 
 🚀 Como Rodar o Projeto
+
 Clone este repositório:​ git clone https://github.com/gustavodovale/Pokedex_App.git
 
 Acesse a pasta do projeto:​ cd Pokedex_App
 
 Instale as dependências:​ flutter pub get
+
 Execute o app:​ flutter run
