@@ -57,11 +57,11 @@ Habilidades: static, lightning-rod
 
 ### 🔎 Tela de Pesquisa
 
-![Tela de Pesquisa](imgs/Captura%20de%20tela%20de%202025-04-24%2012-07-31.png)
+![Tela de Pesquisa](imgs/Captura%20de%20tela%20de%202025-04-24%2012-05-49.png)
 
 ### 📋 Resultado da Busca
 
-![Resultado do Pokémon](imgs/Captura%20de%20tela%20de%202025-04-24%2012-05-49.png)
+![Resultado do Pokémon](imgs/Captura%20de%20tela%20de%202025-04-24%2012-07-31.png)
 
 ---
 
