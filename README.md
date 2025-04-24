@@ -45,7 +45,7 @@ O usuário digita o nome de um Pokémon (ex: `pikachu`) e o app retorna:
 
 Nome: Pikachu
 
-Tipos: Eletric
+Tipos: Electric
 
 Altura: 4
 
